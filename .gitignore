@@ -6,6 +6,7 @@
 /out-tsc
 
 /data/db_big.json
+/data/db.json
 
 # dependencies
 /node_modules
