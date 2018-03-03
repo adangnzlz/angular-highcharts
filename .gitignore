@@ -5,6 +5,8 @@
 /tmp
 /out-tsc
 
+/data/db_big.json
+
 # dependencies
 /node_modules
 
