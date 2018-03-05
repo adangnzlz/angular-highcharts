@@ -6,11 +6,8 @@ import { City } from '../../models/city.model';
 import { Companie } from '../../models/companie.model';
 import { Sector } from '../../models/sector.model';
 import CommonUtil from '../../utils/common.utils';
-import * as _ from 'lodash';
-import map from 'lodash/fp/map';
-import flow from 'lodash/fp/flow';
-import groupby from 'lodash/fp/groupby';
-import filter from 'lodash/fp/filter';
+import OverviewUtil from './overview.util';
+
 
 
 @Component({
@@ -18,22 +15,18 @@ import filter from 'lodash/fp/filter';
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
-
-
-  sectorIds: Array<Number>;
-  citiesNames: Array<String>;
-  sectorNames: Array<String>;
+export class OverviewComponent {
+  overviewUtil: OverviewUtil;
   companies: Array<Companie>;
   cities: Array<City>;
   sectors: Array<Sector>;
-  options: any;
+  optionsPBSC: any;
+  optionsCBC: any;
+  optionsCBS: any;
+  sectorNames: Array<String>;
+  citiesNames: Array<String>;
 
   constructor(private configurableService: ConfigurableService, private commonUtil: CommonUtil) {
-    this.initDataAndCreateGraph();
-  }
-
-  initDataAndCreateGraph() {
     forkJoin([
       this.configurableService.get(environment.api.cities),
       this.configurableService.get(environment.api.sectors),
@@ -44,57 +37,13 @@ export class OverviewComponent implements OnInit {
       this.companies = results[2];
       this.citiesNames = this.commonUtil.getNamesArray(this.cities);
       this.sectorNames = this.commonUtil.getNamesArray(this.sectors);
-      this.sectorIds = this.commonUtil.getIdsArray(this.sectors);
-      this.createGraphs();
+
+      // util class to format the data for the graphs
+      this.overviewUtil = new OverviewUtil(this.cities, this.sectors, this.companies);
+
+      this.optionsCBC = this.overviewUtil.graphCompaniesBy('Total companies, grouped by city', 'city_id', this.citiesNames);
+      this.optionsCBS = this.overviewUtil.graphCompaniesBy('Total companies, grouped by sector', 'sector_id', this.sectorNames);
+      this.optionsPBSC = this.overviewUtil.graphPeopleBySectorCity();
     });
   }
-
-  ngOnInit() {
-  }
-
-
-  createGraphs(): any {
-    this.gPeopleBySectorCity();
-  }
-
-
-  gPeopleBySectorCity(): any {
-    const series = [];
-
-
-
-    this.sectorNames.forEach((element, index) => {
-      const result = flow(
-        filter((item) => item.sector_id === this.sectorIds[index]),
-        groupby((item) => item.city_id),
-        map((item) => item.length)
-      )(this.companies);
-      console.log(result);
-
-      series.push({
-        name: element,
-        data: result,
-      });
-    });
-
-    this.options = {
-      chart: { type: 'column' },
-      title: { text: 'Total companies, grouped by sector and city' },
-      xAxis: { categories: this.citiesNames },
-      yAxis: {
-        allowDecimals: false, min: 0,
-        title: { text: 'Number of companies' },
-        stackLabels: {
-          enabled: true,
-          style: {
-            fontWeight: 'bold',
-            color: 'white'
-          }
-        }
-
-      },
-      series: series
-    };
-  }
-
 }

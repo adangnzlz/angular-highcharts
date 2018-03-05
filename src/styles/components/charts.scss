@@ -1,10 +1,20 @@
-chart.responsive {
-    display: block;
-    width: 100% !important;
-}
-
-chart.center {
-    >div {
-        margin: auto;
+chart {
+    &.responsive {
+        display: block;
+        width: 100% !important;
+    }
+    &.center {
+        >div {
+            margin: auto;
+        }
+    }
+    &.gap {
+        margin-bottom: 100px;
+    }
+    @media (min-width: 1600px) {
+        &.row {
+            display: inline-block;
+            width: 50% !important;
+        }
     }
 }

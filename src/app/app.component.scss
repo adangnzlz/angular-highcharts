@@ -33,10 +33,14 @@
             }
         }
     }
+    app-footer {
+        position: fixed;
+        width: 100%;
+        bottom: 0px;
+    }
     .content {
         margin-top: 50px;
         margin-left: 250px;
-        min-height: 500px;
         -webkit-transition: margin 0.3s;
         transition: margin 0.3s;
         @media (max-width: 900px) {

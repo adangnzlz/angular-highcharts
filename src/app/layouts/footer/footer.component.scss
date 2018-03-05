@@ -2,7 +2,7 @@
 @import '../../../styles/mixins.scss';
 .footer-container {
     background: $light;
-    min-height: 353px;
+    height: 50px;
     -webkit-transition: margin 0.3s;
     transition: margin 0.3s;
     align-items: center;
