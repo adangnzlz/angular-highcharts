@@ -1,0 +1,30 @@
+@import '../mixins.scss';
+.card {
+    @include box-shadow(0, 5px, 30px, 0.05);
+    border: none;
+    padding: 20px;
+    .ngx-datatable.custom {
+        @include box-shadow(0, 0, 0, 0);
+        &.shadow {
+            @include box-shadow(0, 5px, 15px, 0.05);
+        }
+    }
+    h2 {
+        font-size: 125%;
+        color: $primary;
+        i {
+            color: $secondary;
+        }
+    }
+    hr {
+        margin-bottom: 30px;
+    }
+    .form-row {
+        margin: 5px 0;
+    }
+    &.less-margin {
+        hr {
+            margin-bottom: 15px
+        }
+    }
+}

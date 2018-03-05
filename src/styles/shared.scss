@@ -1,0 +1,15 @@
+@import 'themes/_settings';
+html {
+    font-size: 75%;
+    font-family: monospace;
+}
+
+body {
+    background-color: $background;
+    margin: 0px;
+    font-size: 1.3rem;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    font-family: monospace;
+    overflow-x: hidden;
+}

@@ -1,0 +1,28 @@
+// Load custom theme
+@import 'themes/_settings';
+// ** Bootstrap ** //
+// Bootstrap override
+$theme-colors: ("primary": $primary, "secondary": $secondary, "light": $light, "danger": $danger, "success": $success, "dark": $dark);
+$body-bg: $background;
+// Bootstrap and its default variables
+@import "../../node_modules/bootstrap/scss/bootstrap";
+// ** Components ** //
+// List group styles
+@import 'components/list-group';
+// Card styles
+@import 'components/card';
+// Buttons styles
+@import 'components/buttons';
+// Switch styles
+@import 'components/switch.scss';
+// Forms styles
+@import 'components/forms.scss';
+// Datepicker styles
+@import 'components/datepicker.scss';
+// Select styles
+@import 'components/select.scss';
+// Radio buttons styles
+@import 'components/radioButton.scss';
+// Charts styles
+@import 'components/charts.scss';
+@import './shared.scss';

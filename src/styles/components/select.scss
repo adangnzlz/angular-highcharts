@@ -1,0 +1,13 @@
+ng-select.form-control {
+    padding: 3px 0;
+    .below {
+        border: none;
+        .clear:hover,
+        .toggle:hover {
+            background: inherit;
+        }
+    }
+    select-dropdown>div {
+        z-index: 99;
+    }
+}

@@ -1,0 +1,42 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+.menu-container {
+    padding: 0px;
+    ul {
+        list-style-type: none;
+        padding: 20px 0px;
+        li {
+            font-size: 2rem;
+            padding: 5px 20px;
+            outline: none;
+            color: $primary;
+            cursor: pointer;
+            a {
+                font-weight: normal;
+                left: 45px;
+                position: absolute;
+            }
+            &:before {
+                content: '';
+                display: inline-block;
+                width: 0px;
+                height: 15px;
+                width: 15px;
+                border-radius: 7.5px;
+                background-color: #9cd64a;
+                transition: all 0.3s;
+                transform: scale(0);
+            }
+            &:hover, &.active {
+                &:before {
+                    transform: scale(1);
+                }
+            }
+            &.active {
+                a{
+                    font-weight: bolder;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.bs-datepicker-container {
+    padding: 0;
+    .bs-calendar-container {
+        .bs-datepicker-head {
+            background-color: $primary;
+        }
+        .bs-datepicker-body {
+            span.selected {
+                background-color: $secondary !important;
+            }
+            td.week span {
+                color: $light !important;
+            }
+        }
+    }
+}
+
+.datepicker_reset {
+    font-size: 18px;
+    color: #AFAFAF;
+    cursor: pointer;
+    height: 38px;
+    position: absolute;
+    right: 15px;
+    bottom: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

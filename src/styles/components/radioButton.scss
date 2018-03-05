@@ -1,0 +1,24 @@
+input[type="radio"] {
+    appearance: none;
+    margin: 0 40px;
+    width: 14px;
+    height: 14px;
+    background: #eeeeee;
+    box-shadow: inset 0 0 0 .4em white, 0 0 0 .3em;
+    border-radius: 50%;
+    transition: .2s;
+    cursor: pointer;
+    color: $light;
+    &:hover,
+    &:checked {
+        background: #363945;
+        box-shadow: inset 0 0 0 .6em white, 0 0 0 .3em;
+    }
+    &:checked {
+        background: $primary;
+        box-shadow: inset 0 0 0 .4em white, 0 0 0 .3em $primary;
+    }
+    &:focus {
+        outline: 0;
+    }
+}

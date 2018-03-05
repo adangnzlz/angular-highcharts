@@ -1,0 +1,19 @@
+.header-container {
+    padding: 15px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+    width: 100%;
+    .hamburger {
+        display: none;
+        margin-right: auto;
+        @media (max-width: 900px) {
+            display: block;
+        }
+        i {
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+}

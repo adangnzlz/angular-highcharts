@@ -1,0 +1,10 @@
+chart.responsive {
+    display: block;
+    width: 100% !important;
+}
+
+chart.center {
+    >div {
+        margin: auto;
+    }
+}

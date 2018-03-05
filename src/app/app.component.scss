@@ -1,0 +1,55 @@
+@import '../styles/styles.scss';
+@import '../styles/mixins.scss';
+.app-container {
+    app-header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+        z-index: 99;
+        background: $secondary;
+        color: white;
+        @include box-shadow(1px, 1px, 1px, 0.1);
+    }
+    app-menu {
+        padding: 0px;
+        position: fixed;
+        margin-top: 0px;
+        height: 100%;
+        width: 250px;
+        background: white;
+        z-index: 99;
+        margin-left: 0px;
+        -webkit-transition: margin 0.3s;
+        transition: margin 0.3s;
+        @include box-shadow(1px, 1px, 1px, 0.5);
+        @media (max-width: 900px) {
+            margin-left: -250px;
+            &.expanded {
+                margin-left: 0px;
+            }
+        }
+    }
+    .content {
+        margin-top: 50px;
+        margin-left: 250px;
+        min-height: 500px;
+        -webkit-transition: margin 0.3s;
+        transition: margin 0.3s;
+        @media (max-width: 900px) {
+            margin-left: 0px;
+        }
+    }
+}
+
+// sass-lint:disable-next-line no-important
+/deep/ router-outlet~* {
+    position: absolute;
+    width: calc(100% - 250px);
+    @media (max-width: 900px) {
+        width: 100%;
+    }
+}

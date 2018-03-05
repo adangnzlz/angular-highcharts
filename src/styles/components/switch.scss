@@ -1,0 +1,53 @@
+@import '../mixins.scss';
+.switch {
+    width: 80px;
+    height: 38px;
+    background: $light;
+    position: relative;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    &:after {
+        position: absolute;
+        right: 10px;
+        z-index: 0;
+        font: 12px/26px Arial, sans-serif;
+        font-weight: bold;
+    }
+    &:before {
+        position: absolute;
+        left: 10px;
+        z-index: 0;
+        font: 12px/26px Arial, sans-serif;
+        font-weight: bold;
+    }
+    label {
+        @include box-shadow(0, 2px, 4px, 0.2);
+        position: absolute;
+        top: 1px;
+        display: block;
+        width: 35px;
+        height: 35px;
+        cursor: pointer;
+        z-index: 1;
+        background: $danger;
+        border-radius: 50px;
+        transition: all 0.4s ease;
+    }
+    input[type=checkbox] {
+        visibility: hidden;
+        &:checked+label {
+            right: 0!important;
+            background-color: $success;
+        }
+    }
+    &.small {
+        width: 100px;
+        height: 20px;
+        label {
+            width: 17px;
+            height: 19px;
+            cursor: -webkit-grab;
+        }
+    }
+}
