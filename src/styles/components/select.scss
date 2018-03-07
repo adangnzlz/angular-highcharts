@@ -1,13 +1,35 @@
-ng-select.form-control {
-    padding: 3px 0;
-    .below {
-        border: none;
-        .clear:hover,
-        .toggle:hover {
-            background: inherit;
-        }
-    }
-    select-dropdown>div {
-        z-index: 99;
-    }
+.ng-select.opened .ng-control {
+    cursor: pointer!important;
+}
+
+.ng-dropdown-panel.bottom {
+    left: 0%;
+}
+
+.ng-select .ng-control .ng-value-container .ng-input>input {
+    cursor: pointer!important;
+}
+
+.ng-select.ng-single .ng-control {
+    cursor: pointer!important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.marked {
+    background-color: $secondary!important;
+    color: white!important;
+}
+
+.ng-dropdown-panel .ng-dropdown-panel-items .ng-option.selected {
+    background-color: $light!important;
+    color: black!important;
+}
+
+.ng-select.ng-multiple .ng-control .ng-value-container .ng-value {
+    font-size: 0.9em;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    background-color: $secondary!important;
+    color: white!important;
+    border-radius: 2px;
+    border: 1px solid #c2e0ff;
 }

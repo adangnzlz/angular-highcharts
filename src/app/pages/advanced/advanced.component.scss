@@ -1,0 +1,49 @@
+@import '../../../styles/styles.scss';
+@import '../../../styles/mixins.scss';
+.advanced-container {
+    margin: 25px;
+    margin-bottom: 100px;
+    app-checkbox-group {
+        width: 100%;
+        text-align: center;
+    }
+    .group-items {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .title {
+        font-size: 2rem;
+    }
+    .warning {
+        color: $warning;
+        text-align: center;
+    }
+    ng-select {
+        min-width: 250px;
+        max-width: 300px;
+        margin: auto;
+        text-align: left;
+    }
+    .cancel {
+        color: black;
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+        &:hover {
+            color: $danger;
+            text-decoration: underline;
+        }
+    }
+    .help {
+        color: black;
+        text-align: center;
+        width: 100%;
+        font-size: 14px;
+        cursor: pointer;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

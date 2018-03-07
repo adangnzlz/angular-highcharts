@@ -5,8 +5,12 @@
     background: $light;
     position: relative;
     border-radius: 50px;
+    border-color: $secondary!important;
     display: flex;
     align-items: center;
+    &.checked{
+        background: $secondary!important;
+    }
     &:after {
         position: absolute;
         right: 10px;

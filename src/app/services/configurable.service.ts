@@ -12,21 +12,20 @@ export class ConfigurableService {
     this.API_URL = environment.api.base;
   }
 
-  get(endpoint, param = ''): Observable<any> {
-    return this.http.get(`${this.API_URL}${endpoint}/${param}`);
+  get(endpoint): Observable<any> {
+    return this.http.get(`${this.API_URL}${endpoint}`);
   }
-
 
   post(endpoint, body): Observable<any> {
     return this.http.post(`${this.API_URL}${endpoint}`, body);
   }
 
-  put(endpoint, param = '', body: any): Observable<any> {
-    return this.http.put(`${this.API_URL}${endpoint}/${param}`, JSON.stringify(body));
+  put(endpoint, body: any): Observable<any> {
+    return this.http.put(`${this.API_URL}${endpoint}`, JSON.stringify(body));
 
   }
-  delete(endpoint, param = '') {
-    return this.http.delete(`${this.API_URL}${endpoint}/${param}`);
+  delete(endpoint) {
+    return this.http.delete(`${this.API_URL}${endpoint}`);
   }
 
 }

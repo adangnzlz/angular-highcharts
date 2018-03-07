@@ -1,7 +1,7 @@
 
 import { Routes } from '@angular/router';
 import { OverviewComponent } from './pages/overview/overview.component';
-import { OtherComponent } from './pages/other/other.component';
+import { AdvancedComponent } from './pages/advanced/advanced.component';
 
 
 
@@ -17,9 +17,9 @@ export const routes: Routes = [
         component: OverviewComponent
     },
     {
-        path: 'other',
-        component: OtherComponent
-    },
+        path: 'advanced',
+        component: AdvancedComponent
+    }
 
 
 ];

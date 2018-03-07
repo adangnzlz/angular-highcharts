@@ -2,7 +2,10 @@
     <app-header (toggle)="onToggle()"></app-header>
     <app-menu (changeRoute)="closeMenu()" [ngClass]="{ 'expanded': expanded}"></app-menu>
     <div [@fadeAnimation]="getRouterOutletState(o)" (click)="closeMenu()" class="content">
-        <router-outlet #o="outlet"></router-outlet>
+        <router-outlet  #o="outlet"></router-outlet>
+        <span class="spinner" *ngIf="objLoaderStatus">
+            <spinner [size]="20" [tickness]="1"></spinner>
+        </span>
     </div>
     <app-footer></app-footer>
 

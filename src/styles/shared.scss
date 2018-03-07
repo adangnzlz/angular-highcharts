@@ -13,3 +13,8 @@ body {
     font-family: monospace;
     overflow-x: hidden;
 }
+
+spinner {
+    border-width: 12px!important;
+    border-color: $background rgba(79, 106, 167, 0.1) rgba(79, 106, 167, 0.1)!important
+}

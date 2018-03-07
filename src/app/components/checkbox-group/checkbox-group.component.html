@@ -1,0 +1,12 @@
+<form *ngIf="checkboxGroup" class="col-xs-12" [formGroup]="checkboxGroup">
+  <div class="check-section">
+    <p class="title">{{title}}</p>
+    <div *ngFor="let control of checkboxGroup.controls['array'].controls; let i = index;" class="pretty p-icon p-round p-jelly">
+      <input [formControl]="control" type="checkbox" />
+      <div class="state p-primary">
+        <i class="fa fa-check"></i>
+        <label>{{_items[i].name}}</label>
+      </div>
+    </div>
+  </div>
+</form>

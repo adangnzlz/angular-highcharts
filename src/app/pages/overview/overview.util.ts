@@ -20,36 +20,6 @@ export default class OverviewUtil {
         this.sectorIds = this.commonUtil.getIdsArray(sectors);
     }
 
-
-    graphPeopleBySectorCity(): any {
-        const series = this.formatDataPeopleBySectorCity();
-        const options = {
-            chart: { type: 'column', style: { fontFamily: 'monospace' } },
-            title: { text: 'Total companies, grouped by sector and city' },
-            xAxis: { categories: this.citiesNames },
-            yAxis: { allowDecimals: false, min: 0, title: { text: 'Number of companies' } },
-            series: series
-        };
-        return options;
-    }
-
-    formatDataPeopleBySectorCity() {
-        const series = [];
-        this.sectorNames.forEach((element, index) => {
-            let result = flow(
-                filter((item) => item.sector_id === this.sectorIds[index]),
-                groupby((item) => item.city_id)
-            )(this.companies);
-            result = this.commonUtil.fillEmptyGroup(result, this.citiesNames);
-            result = map(item => item.length)(result);
-            series.push({
-                name: element,
-                data: result,
-            });
-        });
-        return series;
-    }
-
     graphCompaniesBy(title, groupByField, groupNames): any {
         const series = this.formatDataCompaniesBy(groupByField, groupNames);
         const options = {

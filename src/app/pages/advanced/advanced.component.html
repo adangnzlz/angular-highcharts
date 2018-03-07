@@ -1,0 +1,38 @@
+<div class="advanced-container">
+    <div *ngIf="citiesModel && sectorsModel" class="row col-md-12">
+        <div class="group-items">
+            <p class="title">Select the graph to show</p>
+            <ng-select (change)="selected()" [items]="graphOptions" bindLabel="name" bindValue="id" placeholder="Select..." [(ngModel)]="querySelected">
+            </ng-select>
+        </div>
+        <app-checkbox-group *ngIf="querySelected === 1" [disabled]="working" (checkChange)="setSelectedCheckboxes($event, 'cities')"
+            [title]="'Select the cities:'" [items]="citiesModel"></app-checkbox-group>
+        <app-checkbox-group #chSectors *ngIf="querySelected" [disabled]="working" (checkChange)="setSelectedCheckboxes($event, 'sectors')"
+            [title]="'Select the sectors:'" [items]="sectorsModel"></app-checkbox-group>
+
+        <div *ngIf="querySelected === 2 && companiesModelSelect.length > 0" class="group-items">
+            <ng-select [multiple]="true" [closeOnSelect]="false" [items]="companiesModelSelect" bindLabel="name" bindValue="id" placeholder="Select..."
+                groupBy="sector_name" [(ngModel)]="companiesSelected">
+            </ng-select>
+            <div>
+                <a (click)="randomSelect()" class="help">Click here to random selection of companies</a>
+            </div>
+            <div>
+                <a (click)="selectAll()" class="help">Click here to select all</a>
+            </div>
+        </div>
+
+        <div *ngIf="querySelected === 2" class="group-items">
+            <p class="title">Clasified by gender</p>
+            <ui-switch [disabled]="working" size="large" [(ngModel)]="enableGender"></ui-switch>
+        </div>
+        <div class="group-items">
+            <button *ngIf="querySelected" [disabled]="!isButtonEnabled() || working" class="button" (click)="calculate()">
+                <span *ngIf="!working">Show me!</span>
+                <spinner *ngIf="working" [tickness]="5" [size]="25"></spinner>
+            </button>
+        </div>
+        <a (click)="cancel()" class="cancel" *ngIf="working">Cancel</a>
+        <chart *ngIf="options" class="center responsive gap" [options]="options"></chart>
+    </div>
+</div>

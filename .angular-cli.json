@@ -56,10 +56,12 @@
   },
   "defaults": {
     "styleExt": "scss",
-    "component": {"properties": {
+    "component": {
+      "properties": {
         "spec": {
           "default": false
         }
-      }}
+      }
+    }
   }
 }

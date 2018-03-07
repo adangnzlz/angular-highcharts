@@ -20,9 +20,15 @@ $body-bg: $background;
 // Datepicker styles
 @import 'components/datepicker.scss';
 // Select styles
+@import "~@ng-select/ng-select/themes/default.theme.css";
 @import 'components/select.scss';
 // Radio buttons styles
 @import 'components/radioButton.scss';
 // Charts styles
 @import 'components/charts.scss';
+// Inputs styles
+@import 'components/inputs.scss';
+// Checkbox styles
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+@import 'components/checkbox.scss';
 @import './shared.scss';
