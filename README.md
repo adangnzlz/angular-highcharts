@@ -1,5 +1,6 @@
 # demo-graph
 
+Ejemplo aplicacin Angular/Typescript con Hightcharts y json-server
 
 ## SERVER API
 
