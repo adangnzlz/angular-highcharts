@@ -7,8 +7,11 @@
 Run `npm run server` for start de REST Api on    http://localhost:3004
 
  `http://localhost:3004/cities
+ 
   http://localhost:3004/sectors
+  
   http://localhost:3004/companies
+  
   http://localhost:3004/measurements`
 
 
